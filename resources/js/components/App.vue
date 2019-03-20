@@ -89,20 +89,22 @@
 <style scoped>
     .usersHeader {
         background-color: #ebebeb;
-        height: 50px;
-        vertical-align: middle;
+        height: 75px;
     }
 </style>
 
 <template>
     <v-app>
-
         <v-content>
             <v-container>
-                <div class="usersHeader">
-                    <h4>Admin Users</h4>
-                    <v-icon class="text-md-right" @click="triggerUserForm({})">add</v-icon>
-                </div>
+                <v-layout align-center justify-space-between row class="usersHeader">
+                    <v-flex>
+                        <h3 class="pl-3">Admin Users</h3>
+                    </v-flex>
+                    <v-flex xs1>
+                        <v-icon @click="triggerUserForm({})" class="pl-5">add</v-icon>
+                    </v-flex>
+                </v-layout>
 
                 <v-form>
                     <v-layout>

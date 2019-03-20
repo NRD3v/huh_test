@@ -2059,7 +2059,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.usersHeader[data-v-332fccf4] {\n    background-color: #ebebeb;\n    height: 50px;\n    vertical-align: middle;\n}\n", ""]);
+exports.push([module.i, "\n.usersHeader[data-v-332fccf4] {\n    background-color: #ebebeb;\n    height: 75px;\n}\n", ""]);
 
 // exports
 
@@ -3217,22 +3217,38 @@ var render = function() {
             "v-container",
             [
               _c(
-                "div",
-                { staticClass: "usersHeader" },
+                "v-layout",
+                {
+                  staticClass: "usersHeader",
+                  attrs: {
+                    "align-center": "",
+                    "justify-space-between": "",
+                    row: ""
+                  }
+                },
                 [
-                  _c("h4", [_vm._v("Admin Users")]),
+                  _c("v-flex", [
+                    _c("h3", { staticClass: "pl-3" }, [_vm._v("Admin Users")])
+                  ]),
                   _vm._v(" "),
                   _c(
-                    "v-icon",
-                    {
-                      staticClass: "text-md-right",
-                      on: {
-                        click: function($event) {
-                          return _vm.triggerUserForm({})
-                        }
-                      }
-                    },
-                    [_vm._v("add")]
+                    "v-flex",
+                    { attrs: { xs1: "" } },
+                    [
+                      _c(
+                        "v-icon",
+                        {
+                          staticClass: "pl-5",
+                          on: {
+                            click: function($event) {
+                              return _vm.triggerUserForm({})
+                            }
+                          }
+                        },
+                        [_vm._v("add")]
+                      )
+                    ],
+                    1
                   )
                 ],
                 1
