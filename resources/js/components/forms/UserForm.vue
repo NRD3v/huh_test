@@ -43,6 +43,7 @@
                 }
             },
             closeUserForm() {
+                this.dismissAlert();
                 this.$emit('closeUserForm')
             },
             dismissAlert() {
@@ -78,7 +79,7 @@
                     } else {
                         this.$store.dispatch('loadIsLoading', false);
                         this.$store.dispatch('loadStatus', {
-                            status: "error",
+                            type: "error",
                             message: "Missing fields"
                         })
                     }
@@ -99,13 +100,11 @@
                 <span class="headline" v-if="!isNew">Edit {{ this.user.name }}</span>
                 <span class="headline" v-if="isNew">Create user</span>
             </v-card-title>
-            <v-container v-if="status && status.type === 'error'">
-                <v-alert v-model="status && status.type === 'error'" :dismissible="true" :type="status.type"
-                         transition="scale-transition" @click="dismissAlert">
+            <v-card-text>
+                <v-alert v-if="status && status.type === 'error'" v-model="status" :dismissible="true"
+                         :type="status.type" transition="scale-transition" @click="dismissAlert">
                     {{ status.message }}
                 </v-alert>
-            </v-container>
-            <v-card-text>
                 <v-container grid-list-md>
                     <v-layout wrap>
                         <v-flex xs12>

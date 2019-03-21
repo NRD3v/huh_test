@@ -12,7 +12,7 @@
 */
 
 Route::prefix('api')->group(function () {
-    Route::get('/test', 'DevController@test');
+//    Route::get('/test', 'DevController@test');
 
     Route::prefix('users')->group(function () {
         Route::put('/{id}/permission', 'UsersController@updatePermission');

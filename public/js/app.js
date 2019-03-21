@@ -1992,6 +1992,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     closeUserForm: function closeUserForm() {
+      this.dismissAlert();
       this.$emit('closeUserForm');
     },
     dismissAlert: function dismissAlert() {
@@ -2036,7 +2037,7 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           this.$store.dispatch('loadIsLoading', false);
           this.$store.dispatch('loadStatus', {
-            status: "error",
+            type: "error",
             message: "Missing fields"
           });
         }
@@ -3726,11 +3727,11 @@ var render = function() {
               : _vm._e()
           ]),
           _vm._v(" "),
-          _vm.status && _vm.status.type === "error"
-            ? _c(
-                "v-container",
-                [
-                  _c(
+          _c(
+            "v-card-text",
+            [
+              _vm.status && _vm.status.type === "error"
+                ? _c(
                     "v-alert",
                     {
                       attrs: {
@@ -3740,15 +3741,11 @@ var render = function() {
                       },
                       on: { click: _vm.dismissAlert },
                       model: {
-                        value: _vm.status && _vm.status.type === "error",
+                        value: _vm.status,
                         callback: function($$v) {
-                          _vm.$set(
-                            _vm.status && _vm.status,
-                            "type === 'error'",
-                            $$v
-                          )
+                          _vm.status = $$v
                         },
-                        expression: "status && status.type === 'error'"
+                        expression: "status"
                       }
                     },
                     [
@@ -3759,14 +3756,8 @@ var render = function() {
                       )
                     ]
                   )
-                ],
-                1
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c(
-            "v-card-text",
-            [
+                : _vm._e(),
+              _vm._v(" "),
               _c(
                 "v-container",
                 { attrs: { "grid-list-md": "" } },
